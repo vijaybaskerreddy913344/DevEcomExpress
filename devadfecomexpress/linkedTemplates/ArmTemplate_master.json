@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "devadfecomexpress"
+		},
+		"LS_SRC_RAW_BLOB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SRC_RAW_BLOB'"
+		},
+		"LS_SRC_RAW_DATALAKE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SRC_RAW_DATALAKE'"
+		},
+		"LS_TGT_LAKE_SI_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TGT_LAKE_SI'"
+		},
+		"LS_SRC_RAW_DATALAKE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsrawecomexpress.dfs.core.windows.net/"
+		},
+		"LS_TGT_LAKE_SI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlssiecomexpress.dfs.core.windows.net/"
+		},
+		"LS_SRC_REST_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/VDIbjG/data"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "devadfecomexpress_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SRC_RAW_BLOB_connectionString": {
+						"value": "[parameters('LS_SRC_RAW_BLOB_connectionString')]"
+					},
+					"LS_SRC_RAW_DATALAKE_accountKey": {
+						"value": "[parameters('LS_SRC_RAW_DATALAKE_accountKey')]"
+					},
+					"LS_TGT_LAKE_SI_accountKey": {
+						"value": "[parameters('LS_TGT_LAKE_SI_accountKey')]"
+					},
+					"LS_SRC_RAW_DATALAKE_properties_typeProperties_url": {
+						"value": "[parameters('LS_SRC_RAW_DATALAKE_properties_typeProperties_url')]"
+					},
+					"LS_TGT_LAKE_SI_properties_typeProperties_url": {
+						"value": "[parameters('LS_TGT_LAKE_SI_properties_typeProperties_url')]"
+					},
+					"LS_SRC_REST_API_properties_typeProperties_url": {
+						"value": "[parameters('LS_SRC_REST_API_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
