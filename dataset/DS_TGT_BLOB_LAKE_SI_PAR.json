@@ -1,0 +1,44 @@
+{
+	"name": "DS_TGT_BLOB_LAKE_SI_PAR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TGT_LAKE_SI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "products"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "product_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_category_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_weight_g",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_length_cm",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_height_cm",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_width_cm",
+				"type": "UTF8"
+			}
+		]
+	}
+}
