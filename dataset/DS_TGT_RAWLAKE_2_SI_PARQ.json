@@ -1,0 +1,40 @@
+{
+	"name": "DS_TGT_RAWLAKE_2_SI_PARQ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TGT_LAKE_SI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "payments"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "payment_sequential",
+				"type": "UTF8"
+			},
+			{
+				"name": "payment_type",
+				"type": "UTF8"
+			},
+			{
+				"name": "payment_installments",
+				"type": "UTF8"
+			},
+			{
+				"name": "payment_value",
+				"type": "UTF8"
+			}
+		]
+	}
+}
