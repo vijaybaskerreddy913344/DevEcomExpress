@@ -1,0 +1,19 @@
+{
+	"name": "DS_TGT_REST_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TGT_LAKE_SI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "customers"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
