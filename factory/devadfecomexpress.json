@@ -1,0 +1,9 @@
+{
+	"name": "devadfecomexpress",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5cfa1a6a-67e8-4d17-a20a-8232a57b966a",
+		"tenantId": "62846d92-c107-42d7-9439-a9ce7c06abc3"
+	}
+}
